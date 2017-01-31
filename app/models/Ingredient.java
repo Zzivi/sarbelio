@@ -1,12 +1,14 @@
 package models;
 
-import javax.persistence.*;
+import play.db.ebean.Model;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
-public class Ingredient {
+public class Ingredient extends Model{
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
 	public String id;
 
     public String name;
