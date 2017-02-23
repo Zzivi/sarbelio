@@ -1,0 +1,13 @@
+@(ingredient: Ingredient)
+
+@import helper._
+
+@main("Ingredient form") {
+
+    <h1>Ingredient</h1>
+    <div> @ingredient.id </div>
+    <div> @ingredient.name </div>
+
+    <a class="btn" href="@routes.IngredientsController.index()">Cancel</a>
+
+}

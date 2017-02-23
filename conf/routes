@@ -11,13 +11,13 @@ GET     /ingredients/new                controllers.IngredientsController.create
 # Save a new ingredient
 POST    /ingredients                    controllers.IngredientsController.save()
 # Display a specific ingredient
-#GET     /ingredients/:id                controllers.IngredientsController.show()
+GET     /ingredients/:id                controllers.IngredientsController.show(id:Long)
 # Return an HTML form for editing an ingredient
-#GET     /ingredients/:id/edit           controllers.IngredientsController.edit()
+#GET     /ingredients/:id/edit           controllers.IngredientsController.edit(id:Long)
 # Update a specific ingredient
-#PUT     /ingredients/:id                controllers.IngredientsController.update()
+#PUT     /ingredients/:id                controllers.IngredientsController.update(id:Long)
 # Delete a specific ingredient
-#DELETE  /ingredients/:id                controllers.IngredientsController.destroy()
+#DELETE  /ingredients/:id                controllers.IngredientsController.destroy(id:Long)
 
 
 

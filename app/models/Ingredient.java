@@ -11,8 +11,13 @@ import play.data.validation.Constraints;
 public class Ingredient extends Model{
 
     @Id
-	public String id;
+	public Long id;
 
     @Constraints.Required
     public String name;
+
+    /**
+     * Generic query helper for entity Computer with id Long
+     */
+    public static Finder<Long,Ingredient> find = new Finder<Long,Ingredient>(Long.class, Ingredient.class);
 }

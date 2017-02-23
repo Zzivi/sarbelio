@@ -4,7 +4,7 @@
 # --- !Ups
 
 create table ingredient (
-  id                        varchar(255) not null,
+  id                        bigint not null,
   name                      varchar(255),
   constraint pk_ingredient primary key (id))
 ;

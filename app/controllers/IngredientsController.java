@@ -5,8 +5,9 @@ import java.util.List;
 import models.Ingredient;
 import play.mvc.*;
 import play.data.Form;
-import views.html.ingredients.index;
 import views.html.ingredients.create;
+import views.html.ingredients.index;
+import views.html.ingredients.show;
 
 
 public class IngredientsController extends Controller {
@@ -28,6 +29,7 @@ public class IngredientsController extends Controller {
         Form<Ingredient> ingredientForm = Form.form(Ingredient.class);
         return ok(create.render(ingredientForm));
     }
+
     /**
      * Save a new ingredient
      * @return
@@ -38,6 +40,13 @@ public class IngredientsController extends Controller {
         return redirect(routes.IngredientsController.index());
     }
 
-
-
+    /**
+     * Display a specific ingredient
+     * @param id
+     * @return
+     */
+    public Result show(Long id) {
+        Ingredient ingredient = Ingredient.find.byId(id);
+        return ok(show.render(ingredient));
+    }
 }
