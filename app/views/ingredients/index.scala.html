@@ -1,0 +1,24 @@
+@(ingredients: List[Ingredient])
+
+@main("Ingredients catalogue") {
+    <h2>All ingredients</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th/>
+        </tr>
+        </thead>
+        <tbody>
+        @for(ingredient <- ingredients) {
+        <tr>
+            <td>
+                @ingredient.name
+            </td>
+        </tr>
+        }
+        </tbody>
+    </table>
+    <a href="@routes.IngredientsController.create()" class="btn">
+        <i class="icon-plus"></i>New ingredient</a>
+}

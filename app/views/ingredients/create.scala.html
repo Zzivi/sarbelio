@@ -1,0 +1,16 @@
+@(ingredientForm: Form[Ingredient])
+
+@import helper._
+
+@main("Ingredient form") {
+
+    <h1>Ingredient form</h1>
+    @form(action = routes.IngredientsController.save()) {
+        <fieldset>
+            @inputText(ingredientForm("name"),'_label -> "Name")
+
+        </fieldset>
+        <input type="submit" class="btn btn-primary" value="Create this ingredient"> or
+        <a class="btn" href="@routes.IngredientsController.index()">Cancel</a>
+    }
+}

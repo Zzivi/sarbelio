@@ -2,10 +2,24 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET     /                           	controllers.Ingredient.index()
-POST    /ingredient                     controllers.Ingredient.addIngredient()
-GET     /ingredients                    controllers.Ingredient.getIngredients()
+## Ingredients
+
+# Display list of ingredients
+GET     /ingredients                    controllers.IngredientsController.index()
+# Return an HTML form for creating a new ingredient
+GET     /ingredients/new                controllers.IngredientsController.create()
+# Save a new ingredient
+POST    /ingredients                    controllers.IngredientsController.save()
+# Display a specific ingredient
+#GET     /ingredients/:id                controllers.IngredientsController.show()
+# Return an HTML form for editing an ingredient
+#GET     /ingredients/:id/edit           controllers.IngredientsController.edit()
+# Update a specific ingredient
+#PUT     /ingredients/:id                controllers.IngredientsController.update()
+# Delete a specific ingredient
+#DELETE  /ingredients/:id                controllers.IngredientsController.destroy()
+
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

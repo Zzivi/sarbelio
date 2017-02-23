@@ -1,3 +1,4 @@
+import controllers.IngredientsController;
 import org.junit.Test;
 import play.mvc.Result;
 import play.test.WithApplication;
@@ -14,14 +15,14 @@ import static org.junit.Assert.assertTrue;
 * If you are interested in mocking a whole application, see the wiki for more details.
 *
 */
-public class IngredientTest extends WithApplication {
+public class IngredientsControllerTest extends WithApplication {
 
     @Test
     public void testIndex() {
-        Result result = new controllers.Ingredient().index();
+        Result result = new IngredientsController().index();
         assertEquals(OK, result.status());
         assertEquals("text/html", result.contentType().get());
         assertEquals("utf-8", result.charset().get());
-        assertTrue(contentAsString(result).contains("Add Ingredient"));
+        assertTrue(contentAsString(result).contains("New ingredient"));
     }
 }

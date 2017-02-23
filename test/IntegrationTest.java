@@ -14,8 +14,8 @@ public class IntegrationTest {
     @Test
     public void test() {
         running(testServer(), HTMLUNIT, browser -> {
-            browser.goTo("/");
-            assertThat(browser.pageSource(), containsString("Add Ingredient"));
+            browser.goTo("/ingredients");
+            assertThat(browser.pageSource(), containsString("New ingredient"));
         });
     }
 
