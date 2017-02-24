@@ -19,5 +19,5 @@ public class Ingredient extends Model{
     /**
      * Generic query helper for entity Computer with id Long
      */
-    public static Finder<Long,Ingredient> find = new Finder<Long,Ingredient>(Long.class, Ingredient.class);
+    public static Find<Long,Ingredient> find = new Find<Long,Ingredient>(){};
 }

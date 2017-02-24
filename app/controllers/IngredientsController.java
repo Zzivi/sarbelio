@@ -6,6 +6,7 @@ import models.Ingredient;
 import play.mvc.*;
 import play.data.Form;
 import views.html.ingredients.create;
+import views.html.ingredients.edit;
 import views.html.ingredients.index;
 import views.html.ingredients.show;
 
@@ -48,5 +49,43 @@ public class IngredientsController extends Controller {
     public Result show(Long id) {
         Ingredient ingredient = Ingredient.find.byId(id);
         return ok(show.render(ingredient));
+    }
+
+
+    /**
+     * Return an HTML form for editing an ingredient
+     * @param id
+     * @return
+     */
+    public Result edit(Long id) {
+        Ingredient ingredient = Ingredient.find.byId(id);
+        Form<Ingredient> ingredientForm = Form.form(Ingredient.class).fill(ingredient);
+        return ok(edit.render(id, ingredientForm));
+    }
+
+    /**
+     * Update a specific ingredient
+     * @param id
+     * @return
+     */
+    public Result update(Long id) {
+        Ingredient ingredientFromForm = Form.form(Ingredient.class).bindFromRequest().get();
+        Ingredient ingredientFromDatabase = Ingredient.find.byId(id);
+
+        ingredientFromDatabase.name = ingredientFromForm.name;
+        ingredientFromDatabase.update();
+
+        return redirect(routes.IngredientsController.show(id));
+    }
+
+
+    /**
+     * Delete a specific ingredient
+     * @param id
+     * @return
+     */
+    public Result destroy(Long id) {
+        Ingredient.find.ref(id).delete();
+        return redirect(routes.IngredientsController.index());
     }
 }

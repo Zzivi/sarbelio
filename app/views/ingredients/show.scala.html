@@ -8,6 +8,10 @@
     <div> @ingredient.id </div>
     <div> @ingredient.name </div>
 
+    <a class="btn" href="@routes.IngredientsController.edit(ingredient.id)">Edit</a>
+    @form(routes.IngredientsController.destroy(ingredient.id)) {
+        <input type="submit" value="Delete" class="btn danger">
+    }
     <a class="btn" href="@routes.IngredientsController.index()">Cancel</a>
 
 }
